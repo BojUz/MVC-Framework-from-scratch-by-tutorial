@@ -1,0 +1,21 @@
+{
+    "name": "user/mvc_frame-try",
+    "description": "Opit za MVC framework na BU",
+    "license": "none :D",
+
+    "authors": [
+        {
+            "name": "BojUz",
+            "email": "rarebobi@abv.bg"
+        }
+    ],
+    "autoload":{
+        "files": ["core/Application.php","core/Request.php","core/Router.php"],
+        "psr-4": {
+            "app\\":"./"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
