@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\controllers\SiteController;
 use app\core\Model;
 use mysql_xdevapi\CollectionModify;
 
@@ -25,10 +26,14 @@ class ContactForm extends Model
         'subject' => 'Enter your subject',
             'email' => 'Your email',
             'body' => 'Body',
+            'bodyA' => 'Second body',
+
         ];
     }
-    public function send()
+    public function isSend()
     {
-        return true;
+        if(isset($_POST['form']))return 'form' ;
+        else if(isset($_POST['form2']))return 'form2';
+
     }
 }

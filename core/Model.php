@@ -63,7 +63,7 @@ abstract class Model
                     $className = $rule['class'];
                     $uniqueAttr = $rule['attribute'] ?? $attribute;
                     //$uniqueAttr = 'email';
-                    var_dump($uniqueAttr);
+                    //var_dump($uniqueAttr);
                     $tableName = $className::tableName();
                     $statement = Application::$app->db->prepare("SELECT * FROM $tableName WHERE $uniqueAttr = :attr");
                     $statement->bindValue(":attr",$value);
@@ -92,7 +92,10 @@ abstract class Model
         $this->errors[$attribute][]= $messege;
     }
 
-    public function errorMessages()
+    /**
+     * @return string[]
+     */
+    public function errorMessages(): array
     {
         
         return[
@@ -104,7 +107,10 @@ abstract class Model
             self::RULE_UNIQUE => 'Record with this {field} already exists',
         ];
     }
-    public function hasError($attribute){
+
+
+    public function hasError($attribute)
+    {
         return $this->errors[$attribute] ?? false;
     }
     public function getFirstError($attribute){

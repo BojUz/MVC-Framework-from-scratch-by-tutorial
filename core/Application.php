@@ -5,11 +5,16 @@ use app\core\db\Database;
 use app\core\db\DbModel;
 
 class Application
-{   
+{
+    const EVENT_BEFORE_REQUEST = 'beforeRequest';
+    const EVENT_AFTER_REQUEST = 'afterRequest';
+
+    protected array $eventListeners = [];
+
     public static string $ROOT_DIR;
 
     public string $layout = 'main';
-    public string $userClass;
+    public $userClass=[];
     public Router $router;
     public Request $request;
     public Response $response;

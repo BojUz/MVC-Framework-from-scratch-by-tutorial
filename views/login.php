@@ -5,7 +5,7 @@
 $this->title= 'Login';
 ?>
     <h1>Login</h1>
-<?php $form = \app\core\form\Form::begin('','post');
+<?php $form = \app\core\form\Form::begin('','post','');
 //$model = \app\models\LoginForm::class;
 ?>
 <?php echo $form->field($model, 'email') ?>

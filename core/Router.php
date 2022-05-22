@@ -33,7 +33,7 @@ class Router
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
         $callback = $this->routes[$method][$path] ?? false;
-
+        //var_dump($path);
         if ($callback == false) {
             $this->response->setStatuscode(404);
             //return $this->renderView("404");

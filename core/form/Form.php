@@ -7,9 +7,9 @@ use app\models\LoginForm;
 
 class Form
 {
-    public static function begin($action, $method)
+    public static function begin($action, $method, $name)
     {
-        echo sprintf('<form action="%s" method="%s">', $action, $method);
+        echo sprintf('<form action="%s" method="%s" name ="%s">', $action, $method,$name);
         return new Form();
     }
 

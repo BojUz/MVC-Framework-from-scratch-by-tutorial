@@ -23,13 +23,24 @@ class SiteController extends Controller
 
     public function contact(Request $request)
     {
+
         $contact = new ContactForm();
         $response = new Response();
+
         if($request->isPost()){
             $contact->loadData($request->getBody());
-            if($contact->validate()&& $contact->send())
+            //send da go dorazrabotq
+            if($contact->validate())
             {
-                Application::$app->session->setFlash('success', 'Thanks for contacting us!');
+                if($contact->isSend()=='form')
+                {
+                    Application::$app->session->setFlash('success', 'Thanks for contacting us with contact form!');
+                }
+                else if($contact->isSend()=='form2')
+                {
+                    Application::$app->session->setFlash('success', 'Thanks for contacting us with form2!');
+                }
+
                 return $response->redirect('/contact');
             }
         }
